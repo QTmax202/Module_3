@@ -1,0 +1,161 @@
+create database student_management;
+
+-- 1.	Tạo bảng students 
+CREATE TABLE `student_management`.`students` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(50) NOT NULL,
+  `address` VARCHAR(50) NOT NULL,
+  `sex` INT NOT NULL DEFAULT 1,
+  `age` INT NOT NULL,
+  `email` VARCHAR(50) NOT NULL,
+  `phone` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);
+  
+-- 2.	Tạo bảng classes 
+  create table `student_management`.classes(
+  `id_class` INT NOT NULL AUTO_INCREMENT,
+  `name_class` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id_class`),
+  UNIQUE INDEX `name_UNIQUE`(`name_class` ASC) VISIBLE);
+  
+-- 3.	Bổ sung thêm cột classId vào bảng students
+-- 4.	Thêm classId làm khóa ngoại của bảng students
+  ALTER TABLE student_management.students
+  add column `classId` int,
+  add constraint foreign key (classId) references classes(id_class);
+  
+--   5.	Thêm 5 lớp học vào bảng classes
+  insert into student_management.classes(`name_class`) value ('C921H1');
+  insert into student_management.classes(`name_class`) value('C1021H1');
+  insert into student_management.classes(`name_class`) value('C1121H1');
+  insert into student_management.classes(`name_class`) value('C1221H1');
+  insert into student_management.classes(`name_class`) value('C122H1');
+
+-- 6.	Thêm 10 sinh viên vào bảng students
+insert into `student_management`.`students` (`name`, `address`, `sex`, `age`, `email`, `phone`, `classId`) values 
+('Toàn', 'QN', '1', '22', 'toan@codegym.vn', '0326156727', '1'),
+('Như Anh', 'TB', '1', '23', 'nhuanh@codegym.vn', '0326456727', '1'),
+('C Kiều Anh', 'HN', '0', '24', 'kieuanh@codegym.vn', '0334105727', '3'),
+('A Hoàng', 'HN', '1', '19', 'hoang@codegym.vn', '0326876727', '1'),
+('Luân', 'HN', '1', '20', 'luan@codegym.vn', '0326198827', '5'),
+('Huyen', 'HN', '0', '22', 'huyen@codegym.vn', '0326198727', '1'),
+('Cuong', 'HN', '0', '19', 'cuong@codegym.vn', '0326198727', '5'),
+('Long', 'HN', '1', '24', 'long@codegym.vn', '0326198727', '1'),
+('Tuyen', 'HN', '1', '25', 'tuyen@codegym.vn', '0326198727', '2'),
+('Mai', 'HN', '0', '23', 'mai@codegym.vn', '0326198727', '4');
+
+-- 7.	Hiển thị danh sách học viên theo tên giảm dần
+select *from student_management.students order by name desc;
+
+
+-- 8.	Hiển thị danh sách học viên theo tuổi tăng dần
+select * from student_management.students order by age asc;
+
+-- 9.	Hiển thị tổng số lượng học viên của mỗi lớp
+--  		Phân tích: từ khóa mỗi lớp => sử dụng group by
+-- 						Số lượng học viên => sử dụng count
+SELECT students.classId, classes.name_class, COUNT(*) AS 'Số lượng học sinh: '
+FROM `student_management`.`students`,`student_management`.`classes`
+where students.classId = classes.id_class
+group by students.classId, classes.name_class;
+
+
+-- 10.	Hiển thị lớp có số lượng học viên là đông nhất
+SELECT students.classId, classes.name_class, COUNT(*) AS totalStudentsInClass
+FROM `student_management`.`students`,`student_management`.`classes`
+where students.classId = classes.id_class
+group by students.classId, classes.name_class
+having totalStudentsInClass = 
+(select max(a.totalStudentsInClass) from (
+SELECT students.classId, classes.name_class, COUNT(*) AS totalStudentsInClass
+FROM `student_management`.`students`,`student_management`.`classes`
+where students.classId = classes.id_class
+group by students.classId, classes.name_class
+) a ) 
+;
+
+-- 11.	Hiển thị lớp có số lượng học viên là ít nhất
+
+SELECT students.classId, classes.name_class, COUNT(*) AS totalStudentsInClass
+FROM `student_management`.`students`,`student_management`.`classes`
+where students.classId = classes.id_class
+group by students.classId, classes.name_class
+having totalStudentsInClass = 
+(select min(a.totalStudentsInClass) from (
+SELECT students.classId, classes.name_class, COUNT(*) AS totalStudentsInClass
+FROM `student_management`.`students`,`student_management`.`classes`
+where students.classId = classes.id_class
+group by students.classId, classes.name_class
+) a ) 
+;
+
+-- 12.	Thống kê số lượng học viên theo địa chỉ
+-- Từ khóa: thống kê => sử dụng group by 
+-- 		Số lượng học viên => sử dụng count
+-- 		Từng địa chỉ => group by theo address
+select students.address , count(students.address) as 'so luong hoc sinh'
+from `student_management`.`students`
+group by students.address;
+
+
+-- 13.	Hiển thị những lớp có số lượng học viên lớn hơn 5
+-- Phân tích: mỗi lớp => group by
+-- Số lượng học viên lớn hơn 5 => phải sử dụng having vì phải gom nhóm 	xong mới có số lượng học viên của mỗi lớp
+SELECT students.classId, classes.name_class, COUNT(*) AS 'Số lượng học sinh: '
+FROM `student_management`.`students`,`student_management`.`classes`
+where students.classId = classes.id_class
+group by students.classId, classes.name_class
+having COUNT(*) >= 5;
+
+-- 14.	Hiển thị những thành phố có số lượng học viên lớn hơn 5
+select students.address , count(students.address) as 'so luong hoc sinh'
+from `student_management`.`students`
+group by students.address
+having count(students.address) >= 5;
+
+-- 15.	Hiển thị học viên có tuổi lớn nhất
+-- Phân tích: 
+-- C1: tìm học viên có tuổi lớn nhất => sẽ cần sử dụng hàm max có sẵn đối 	với cột 	tuổi;
+-- C2: Sắp xếp danh sách sinh viên theo tuổi giảm dần và dùng limit 1 để lấy 	1 bản ghi đầu tiên
+select students.name, students.age from `student_management`.students
+where age = (select max(age) from `student_management`.students);
+
+-- 16.	Hiển thị học viên có tuổi nhỏ nhất
+select students.name, students.age from `student_management`.students
+where age = (select min(age) from `student_management`.students);
+
+
+-- 17.	Xóa tất cả học viên có quê ở Hà Nội
+delete from  students where  id in (
+select * from 
+(select id from students where (address like 'TB')) a
+);
+
+select * from  `student_management`.`students` where id in (
+select * from `student_management`.`students` where (address like 'TB'));
+
+-- 18.	Cập nhật thông tin của học viên có quê ở Hà Nội thành giới tính nữ-- 
+UPDATE `student_management`.`students` SET `sex` = '0' WHERE id in (
+select id from `student_management`.`students` where (address like 'HN'));
+
+-- 19.	Hiển thị học viên có số tuổi lớn thứ hai
+-- Phân tích:
+-- o	Tìm tuổi lớn nhất
+-- o	Sau đó dùng câu lệnh select max age và cho where age < giá trị lớn nhất => lấy được giá trị lớn thứ 2
+-- o	Select * và kết hợp subquery
+ 
+ select students.name, students.age 
+ from `student_management`.students
+  where age = (select max(age)
+ from `student_management`.students
+ where age < (select max(age) from `student_management`.students));
+ 
+
+
+-- 20.	Hiển thị học viện có số tuổi nhỏ thứ hai
+ select students.name, students.age 
+ from `student_management`.students
+  where age = (select min(age)
+ from `student_management`.students
+ where age > (select min(age) from `student_management`.students));

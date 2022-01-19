@@ -1,0 +1,58 @@
+create view customer_views as
+select customerNumber, customerName, phone
+from customers;
+
+select * from customer_views;
+
+drop view customer_views;
+
+create view customer_views as
+select customerNumber, customerName, contactFirstName, contactLastName, phone
+from customers
+where city = 'Nantes';
+
+select * from customer_views;
+
+use demo;
+
+create view product_view as
+select productCode, productName, productPrice, productStatus
+from products;
+
+select * from product_view;
+
+update product_view set productStatus = 0 where id = 3;
+
+drop view product_view;
+
+delimiter//
+create proceduce p_product()
+begin
+	select * from products;
+end;
+delimiter;
+
+call p_product();
+
+delimiter//
+create proceduce p_product1(IN p_code varchar(10), IN p_name varchar(60), IN p_price int, IN p_amount int, IN p_description varchar(60), IN p_status bit)
+begin
+	insert into products (productCode, productName, productPrice, productAmount, productDescription, productStatus)
+	values
+	(p_code, p_name, p_price, p_amount, p_description, p_status);
+end;
+delimiter;
+
+delimiter//
+create proceduce p_product2(IN p_id int, IN p_description varchar(60))
+begin
+	update products set productDescription = p_description where ID = p_id;
+end;
+delimiter;
+
+delimiter//
+create proceduce p_product2(IN p_id int, IN p_description varchar(60))
+begin
+	delete from products where ID = p_id;
+end;
+delimiter;
