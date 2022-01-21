@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            font-family: Arial;
+        }
+        #menu, #menu ul, #menu li{
+            padding:0;
+            margin:0;
+        }
+
+        #menu li{
+            list-style: none;
+            position: relative;
+            width:100px;
+            height: 30px;
+            padding:0 20px;
+            background-color: #00ef94;
+            line-height: 30px;
+            cursor:pointer;
+        }
+
+        #menu li a{
+            text-decoration:none;
+            color: white;
+        }
+
+        #menu li:hover{
+            background-color: #00c4ff;
+        }
+
+        #menu ul ul{
+            position: absolute;
+            top:0;
+            left:140px;
+            visibility:hidden;
+        }
+
+        #menu ul li:hover ul{
+            visibility:visible;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h3>C1021H1</h3>
+    <div id="menu">
+        <ul>
+            <li><a href="#">sem 1</a>
+                <ul>
+                    <li><a href="#">Computing Fundametal</a></li>
+                    <li><a href="#">C Programming</a></li>
+                    <li><a href="#">Building Dynamic Website</a></li>
+                    <li><a href="#">MS Transact-SQL</a></li>
+                    <li><a href="#">Project</a></li>
+                </ul>
+            </li>
+            <li><a href="#">sem 2</a>
+                <ul>
+                    <li><a href="#">apple</a></li>
+                    <li><a href="#">samsung</a></li>
+                    <li><a href="#">xiaomi</a></li>
+                    <li><a href="#">remi</a></li>
+                    <li><a href="#">oppo</a></li>
+                    <li><a href="#">asus</a></li>
+                </ul>
+            </li>
+            <li><a href="#">sem 3</a></li>
+            <li><a href="#">sem 4</a></li>
+            <li><a href="#">sem 5</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
