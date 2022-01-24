@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        div.gallery {
+            border: 1px solid #ccc;
+        }
+
+        div.gallery:hover {
+            border: 1px solid #777;
+        }
+
+        div.gallery img {
+            width: 100%;
+            height: auto;
+        }
+
+        div.desc {
+            padding: 15px;
+            text-align: center;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .responsive {
+            padding: 0 6px;
+            float: left;
+            width: 24.99999%;
+        }
+
+        @media only screen and (max-width: 700px){
+            .responsive {
+                width: 49.99999%;
+                margin: 6px 0;
+            }
+        }
+
+        @media only screen and (max-width: 500px){
+            .responsive {
+                width: 100%;
+            }
+        }
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>THU VIEN HINH ANH</h2>
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="https://i.pinimg.com/564x/40/cb/84/40cb84260f5523fdf4aa22c4b10733a9.jpg">
+                <img src="https://i.pinimg.com/564x/40/cb/84/40cb84260f5523fdf4aa22c4b10733a9.jpg" alt="">
+            </a>
+            <div class="desc">Thêm mô tả của hình ảnh</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="https://i.pinimg.com/564x/48/70/7a/48707a430fc7eda8813c80a1a5f6d7dd.jpg">
+                <img src="https://i.pinimg.com/564x/48/70/7a/48707a430fc7eda8813c80a1a5f6d7dd.jpg" alt="">
+            </a>
+            <div class="desc">Thêm mô tả của hình ảnh</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="https://i.pinimg.com/564x/04/76/86/0476867a9109a162ad166619e5a8e8bd.jpg">
+                <img src="https://i.pinimg.com/564x/04/76/86/0476867a9109a162ad166619e5a8e8bd.jpg" alt="">
+            </a>
+            <div class="desc">Thêm mô tả của hình ảnh</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="https://i.pinimg.com/564x/b9/80/83/b980830bd8b891349057cd1fa2c1e72d.jpg">
+                <img src="https://i.pinimg.com/564x/b9/80/83/b980830bd8b891349057cd1fa2c1e72d.jpg" alt="">
+            </a>
+            <div class="desc">Thêm mô tả của hình ảnh</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="https://i.pinimg.com/736x/6b/c6/ca/6bc6cabb220caef9ac426fe27e3290d6.jpg">
+                <img src="https://i.pinimg.com/736x/6b/c6/ca/6bc6cabb220caef9ac426fe27e3290d6.jpg" alt="">
+            </a>
+            <div class="desc">Thêm mô tả của hình ảnh</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="https://i.pinimg.com/564x/06/01/a9/0601a97d9a143cb3e95c30b7639107f5.jpg">
+                <img src="https://i.pinimg.com/564x/06/01/a9/0601a97d9a143cb3e95c30b7639107f5.jpg" alt="">
+            </a>
+            <div class="desc">Thêm mô tả của hình ảnh</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="https://i.pinimg.com/564x/bc/41/2a/bc412afd157df0d0c79808d74350a519.jpg">
+                <img src="https://i.pinimg.com/564x/bc/41/2a/bc412afd157df0d0c79808d74350a519.jpg" alt="">
+            </a>
+            <div class="desc">Thêm mô tả của hình ảnh</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="https://i.pinimg.com/564x/0e/ca/8a/0eca8aec94b59d2265d7dd8c558c8e25.jpg">
+                <img src="https://i.pinimg.com/564x/0e/ca/8a/0eca8aec94b59d2265d7dd8c558c8e25.jpg" alt="">
+            </a>
+            <div class="desc">Thêm mô tả của hình ảnh</div>
+        </div>
+    </div>
+
+    <div style="padding:6px;">
+        <p>This example use media queries to re-arrange the images on different screen sizes: for screens larger than 700px wide, it will show four images side by side, for screens smaller than 700px, it will show two images side by side. For screens smaller than 500px, the images will stack vertically (100%).</p>
+    </div>
+</body>
+</html>
