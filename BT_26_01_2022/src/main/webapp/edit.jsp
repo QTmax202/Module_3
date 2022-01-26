@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/city?action=editPost" method="post">
+<form action="${pageContext.request.contextPath}/city?action=editPost&id=${city.getId()}" method="post">
     <table class="table table-striped">
         <thead>
         <tr>
@@ -24,10 +24,8 @@
         </thead>
 <%--        <tr>--%>
 <%--            <th>ID</th>--%>
-<%--            <td>--%>
-<%--                <label>--%>
-<%--                    <input type="text" name="id">--%>
-<%--                </label>--%>
+<%--            <td name="id" value="${city.getName()}">--%>
+<%--                ${city.getId()}--%>
 <%--            </td>--%>
 <%--        </tr>--%>
         <tr>
@@ -67,10 +65,10 @@
             <td>
                 <label>
                     <select name="country" id="country">
-                        <option value="${city.getCountry()}">VN</option>
-                        <option value="${city.getCountry()}">ENG</option>
-                        <option value="${city.getCountry()}">TQ</option>
-                        <option value="${city.getCountry()}">JP</option>
+                        <option value="VN">VN</option>
+                        <option value="ENG">ENG</option>
+                        <option value="TQ">TQ</option>
+                        <option value="JP">JP</option>
                     </select>
                 </label>
             </td>

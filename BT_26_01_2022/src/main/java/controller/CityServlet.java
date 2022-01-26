@@ -10,7 +10,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name = "CityServlet", value = "/city")
+@WebServlet(name = "CityServlet", urlPatterns = "/city")
 public class CityServlet extends HttpServlet {
     private static final CityService cityService = new CityService();
     @Override
@@ -53,6 +53,7 @@ public class CityServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         City city = cityService.getCity(id);
         if (city != null){
+//            city.setId(Integer.parseInt(request.getParameter("id")));
             city.setName(request.getParameter("name"));
             city.setArea(Double.parseDouble(request.getParameter("area")));
             city.setPopulation(Integer.parseInt(request.getParameter("population")));
@@ -62,8 +63,8 @@ public class CityServlet extends HttpServlet {
         int index = -1;
         ArrayList<City> citys = cityService.display();
         for (int i = 0; i < citys.size(); i++) {
-            assert city != null;
-            if (citys.get(i).getId() == city.getId()){
+//            assert city != null;
+            if (citys.get(i).getId() == id){
                 index = i;
             }
         }
