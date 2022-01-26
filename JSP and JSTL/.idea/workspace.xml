@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f95e32bb-5ee1-4548-a7d6-c4a35b467832" name="Changes" comment="module 3(26/01/2022)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Calculate.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Simple_Calculator.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ViewCustomerList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/JSP and JSTL-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/JSP and JSTL-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-    </list>
+    <list default="true" id="f95e32bb-5ee1-4548-a7d6-c4a35b467832" name="Changes" comment="module 3(26/01/2022)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,7 +144,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1643159836811</updated>
-      <workItem from="1643159838700" duration="5341000" />
+      <workItem from="1643159838700" duration="6077000" />
     </task>
     <task id="LOCAL-00001" summary="module 3(26/01/2022)">
       <created>1643161876830</created>
@@ -166,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643161876830</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="module 3(26/01/2022)">
+      <created>1643171086930</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1643171086930</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
